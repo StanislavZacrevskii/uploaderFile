@@ -1,0 +1,55 @@
+<p-growl [value]="msgs"></p-growl>
+
+<p-fileUpload #id *ngFor="let item of method"
+            name="{{item.name}}" 
+             
+            customUpload="true" 
+            (onClear)="clear()" 
+            (onRemove)="clear()" 
+            (uploadHandler)="uploaderF($event, id)">
+    <ng-template pTemplate="toolbar">
+        <p-progressSpinner *ngIf="this.hasFile()" 
+                            [style]="{width: '25px', height: '25px', 'vertical-align': 'middle'}" 
+                            animationDuration=".5s" 
+                            strokeWidth="8">
+        </p-progressSpinner>
+        <button pButton type="button" icon="fa-check" class="ui-button-success" *ngIf="uploadeS == true"></button>
+        <button pButton type="button" icon="fa-close" class="ui-button-danger" *ngIf="uploadeF == true"></button>
+    </ng-template>
+</p-fileUpload>
+
+<!-- <p-fileUpload #id2 
+            name="habit" 
+            accept=".xlsx, .xls" 
+            customUpload="true" 
+            (onClear)="clear()" 
+            (onRemove)="clear()" 
+            (uploadHandler)="uploaderF($event, id2)">
+    <ng-template pTemplate="toolbar">
+        <p-progressSpinner *ngIf="hasFile(id2)" 
+                            [style]="{width: '25px', height: '25px', 'vertical-align': 'middle'}" 
+                            animationDuration=".5s" 
+                            strokeWidth="8">
+        </p-progressSpinner>
+        <button pButton type="button" icon="fa-check" class="ui-button-success" *ngIf="uploadeS == true"></button>
+        <button pButton type="button" icon="fa-close" class="ui-button-danger" *ngIf="uploadeF == true"></button>
+    </ng-template>
+</p-fileUpload>
+
+<p-fileUpload #id3 
+            name="program" 
+            accept=".xlsx, .xls" 
+            customUpload="true" 
+            (onClear)="clear()" 
+            (onRemove)="clear()"
+            (uploadHandler)="uploaderF($event, id3)">
+    <ng-template pTemplate="toolbar">
+        <p-progressSpinner *ngIf="hasFile(id3)" 
+                            [style]="{width: '25px', height: '25px', 'vertical-align': 'middle'}" 
+                            animationDuration=".5s" 
+                            strokeWidth="8">
+        </p-progressSpinner>
+        <button pButton type="button" icon="fa-check" class="ui-button-success" *ngIf="uploadeS == true"></button>
+        <button pButton type="button" icon="fa-close" class="ui-button-danger" *ngIf="uploadeF == true"></button>
+    </ng-template>
+</p-fileUpload> -->
